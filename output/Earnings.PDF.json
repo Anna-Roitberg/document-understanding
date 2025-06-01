@@ -1,0 +1,28 @@
+{
+  "document_id": "5d2249a107754efab4af7099e34a1585",
+  "file_name": "input/Earnings.PDF",
+  "status": "completed",
+  "page_count": 3,
+  "author": "Amit Israel Mandelbaum",
+  "classification": {
+    "document_class": "report",
+    "confidence": 0.9
+  },
+  "metadata": {
+    "reporting_period": [
+      "2025-01-01T00:00:00Z",
+      "2025-03-31T23:59:59Z"
+    ],
+    "executive_summary": null,
+    "key_metrics": [
+      "Revenue for Q1 2025 was $90,234 million, a 12% increase year-over-year from Q1 2024's $80,539 million.",
+      "Net income increased by 46% from $23,662 million in Q1 2024 to $34,540 million in Q1 2025.",
+      "Diluted EPS rose from $1.89 in Q1 2024 to $2.81 in Q1 2025, marking a 49% increase.",
+      "Total costs and expenses increased by 8% from $55,067 million in Q1 2024 to $59,628 million in Q1 2025.",
+      "Income from operations grew by 20%, reaching $30,606 million in Q1 2025, up from $25,472 million in Q1 2024.",
+      "Other income (expense), net increased significantly, by 293%, from $2,843 million to $11,183 million.",
+      "Income before income taxes went up by 48%, from $28,315 million to $41,789 million.",
+      "Provision for income taxes increased by 56% from $4,653 million to $7,249 million."
+    ]
+  }
+}

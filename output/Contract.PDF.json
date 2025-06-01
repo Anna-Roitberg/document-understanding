@@ -1,0 +1,20 @@
+{
+  "document_id": "9dfc4a1d05f84506904373be48fca24f",
+  "file_name": "input/Contract.PDF",
+  "status": "completed",
+  "page_count": 8,
+  "author": null,
+  "classification": {
+    "document_class": "contract",
+    "confidence": 0.95
+  },
+  "metadata": {
+    "parties": [
+      "EMERALD HEALTH NATURALS, INC.",
+      "DR. GAETANO MORELLO N.D. INC."
+    ],
+    "amount": 240000.0,
+    "effective_date": "2019-01-10T00:00:00Z",
+    "termination_date": "2021-01-10T00:00:00Z"
+  }
+}

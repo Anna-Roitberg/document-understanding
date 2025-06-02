@@ -1,12 +1,12 @@
 {
-  "document_id": "272e1b27553049ae8ac9ddba8d3b35b3",
+  "document_id": "e7b2fa84c08c49baa0141ea15d318ccf",
   "file_name": "input/invoice1.PDF",
   "status": "completed",
   "page_count": 1,
   "author": null,
   "classification": {
     "document_class": "invoice",
-    "confidence": 0.95
+    "confidence": 0.99
   },
   "metadata": {
     "vendor": "Example, LLC",
@@ -14,7 +14,8 @@
     "currency": null,
     "due_date": "2024-03-25T00:00:00Z",
     "line_items": [
-      "Subscription $19.00 1 $19.00"
-    ]
+      "Subscription"
+    ],
+    "confidence": 0.95
   }
 }

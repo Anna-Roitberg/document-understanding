@@ -1,20 +1,29 @@
 {
-  "document_id": "9dfc4a1d05f84506904373be48fca24f",
+  "document_id": "fc7b0a3ff2d04894bf604fa2bd48c662",
   "file_name": "input/Contract.PDF",
   "status": "completed",
   "page_count": 8,
   "author": null,
   "classification": {
     "document_class": "contract",
-    "confidence": 0.95
+    "confidence": 0.98
   },
   "metadata": {
     "parties": [
       "EMERALD HEALTH NATURALS, INC.",
       "DR. GAETANO MORELLO N.D. INC."
     ],
-    "amount": 240000.0,
-    "effective_date": "2019-01-10T00:00:00Z",
-    "termination_date": "2021-01-10T00:00:00Z"
+    "effective_date": "1001-01-10T00:00:00Z",
+    "termination_date": "2021-01-10T00:00:00Z",
+    "key_terms": [
+      "Independent contracting relationship, not employment",
+      "Annual fee of $240,000 with GST and applicable taxes",
+      "Reimbursement of reasonable expenses",
+      "Commitment to best efforts for Emerald's interests",
+      "Confidentiality obligation during and post term",
+      "Returned property upon termination",
+      "Governing law of British Columbia and Canada"
+    ],
+    "confidence": 0.95
   }
 }

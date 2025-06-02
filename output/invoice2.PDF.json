@@ -1,5 +1,5 @@
 {
-  "document_id": "4960a7ef2ca14ae4bfbb84dfcf376e19",
+  "document_id": "a29c8ccf0dc64ebb8375234274ce5a0b",
   "file_name": "input/invoice2.PDF",
   "status": "completed",
   "page_count": 1,
@@ -12,12 +12,12 @@
     "vendor": "Hotel Amarin",
     "amount": 9390.26,
     "currency": "HRK",
-    "due_date": "0309-03-09T10:29:06Z",
+    "due_date": null,
     "line_items": [
-      "tägl. Mietpreis & Vollpension-premium, room - 9,249.26 HRK",
-      "Welcome bar, hotel Amarin - 01.09.2021 - 90.00 HRK",
-      "Istrian beach house II - 01.09.2021 - 51.00 HRK",
-      "Total (incl. taxes) - 9,390.26 HRK"
-    ]
+      "110 täglicher Mietpreis & Vollpension-premium room",
+      "Welcome bar hotel Amarin - 01.09.2021.",
+      "Istrian beach house II -01.09.2021."
+    ],
+    "confidence": 0.95
   }
 }

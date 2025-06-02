@@ -12,9 +12,7 @@ llm = init_chat_model("gpt-4o", model_provider="openai")
 
 classification_prompt = ChatPromptTemplate.from_template(
     """
-Extract the desired information from the following passage.
-
-Only extract the properties mentioned in the {data_type} function.
+Given the extracted text content of a PDF document, classify it into one of the following categories {data_type}:
 
 Passage:
 {input}
@@ -30,16 +28,6 @@ The document:
     """
     )
 
-tagging_prompt_old = ChatPromptTemplate.from_template(
-    """
-Extract the desired information from the following passage.
-
-Only extract the properties mentioned in the {data_type} function.
-
-Passage:
-{input}
-"""
-)
 
 type2struct = {DocType.invoice: ("'Invoice'", Invoice),
                DocType.contract: ("'Contract'", Contract),

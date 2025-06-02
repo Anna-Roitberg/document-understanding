@@ -1,6 +1,6 @@
-from fastapi import FastAPI, HTTPException, Query, UploadFile, File
+from fastapi import FastAPI, HTTPException, UploadFile, File, Path
 from fastapi.responses import FileResponse
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 from pydantic.tools import parse_obj_as
 from typing import List, Optional
 from datetime import datetime
@@ -16,10 +16,12 @@ app = FastAPI(
     description="AI-friendly API for document processing and metadata extraction"
 )
 
+
 class ActionStatus(str, Enum):
     TODO = "todo"
     IN_PROGRESS = "in_progress"
     COMPLETED = "completed"
+
 
 class Priority(str, Enum):
     LOW = "low"
@@ -28,21 +30,26 @@ class Priority(str, Enum):
 
 
 class Action(BaseModel):
-    action_id: str
-    description: str
-    status: ActionStatus
-    deadline: Optional[datetime]
-    priority: Priority
-    assignee: Optional[str]
+    action_id: str = Field(description="Unique action id")
+    description: str = Field(description="Action description")
+    status: ActionStatus = Field(description="Action status")
+    deadline: Optional[datetime] = Field(description="Action deadline")
+    priority: Priority = Field(description="Action priority")
+    assignee: Optional[str] = Field(description="Action assigned to")
 
 
-@app.post("/documents/analyze", response_model=PDFDocument)
-async def analyze_document(file: UploadFile = File(...)):
+@app.post("/documents/analyze", summary="Analyze a document",
+          description="Analyze a PDF document using LLM.")
+async def analyze_document(file: UploadFile = File(..., description="A PDF file to analyze and extract metadata")):
+    """Accepts a document for processing.
+       Returns the extracted metadata.
+       Include processing status and confidence scores.
+    """
     # Mock implementation
     # TRY to find preprocessed document
     processed_docs = glob.glob("output/*.json")
-    file_names = [os.path.basename(path) for path in processed_docs]
-    file_name = os.path.basename(file.filename)
+    file_names = [os.path.basename(path).lower() for path in processed_docs]
+    file_name = os.path.basename(file.filename).lower()
     if file_name + ".json" in file_names:
         with open("output/"+file_name + ".json", encoding="utf-8") as f:
             doc_dict = json.load(f)
@@ -64,8 +71,10 @@ def load_static_documents(folder="output"):
     return documents_dict
 
 
-@app.get("/documents/{document_id}", response_model=PDFDocument)
-async def get_document(document_id: str):
+@app.get("/documents/{document_id}", summary="Get Document Metadata",
+         description="Retrieve the metadata of a document by its unique document_id.")
+async def get_document(document_id: str = Path(..., description="Unique document id")):
+    """Get document metadata by document_id"""
     documents = load_static_documents()
     # Mock implementation
     if not document_id in documents.keys():
@@ -73,8 +82,11 @@ async def get_document(document_id: str):
     return documents[document_id]
 
 
-@app.get("/documents/{document_id}/download")
-async def get_document_download(document_id: str):
+@app.get("/documents/{document_id}/download", summary="Download Document",
+         description="Download a document by its unique document_id.")
+async def get_document_download(document_id: str = Path(...,
+                                                        description="The unique identifier of the document to retrieve.")):
+    """Download document by document_id"""
     documents = load_static_documents()
 
     # Check if document_id is valid
@@ -97,7 +109,7 @@ async def get_document_download(document_id: str):
 
 @app.get("/documents/{document_id}/actions", response_model=List[Action])
 async def get_document_actions(
-        document_id: str,
+        document_id: str = Path(..., description="Unique document id"),
         status: Optional[ActionStatus] = None,
         priority: Optional[Priority] = None,
         deadline_before: Optional[datetime] = None
